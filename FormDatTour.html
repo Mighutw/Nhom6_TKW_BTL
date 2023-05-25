@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Form ĐẶT TOUR</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	 <div style="margin: auto; border: 1px solid #C0FF00; width: 500px; height: auto; padding: 10px 10px 10px 10px; ">
+		 <table  border="1" align="center" cellpadding="0" cellspacing="0" style="margin: auto">
+			<tr> <th align="center" style="font-size: 20px;color: blueviolet; text-align: center;">ĐĂNG KÝ DU LỊCH</th>       
+			</tr>
+	 		<tr><td>
+			<table border="1" style="background-color: antiquewhite; width: 450px; border-color: darkblue" cellpadding="0" cellspacing="0">  
+        <tr>
+            <td>
+               <b style="padding-left: 10px;"> Họ và Tên</b>
+            </td>
+            <td>
+                <input type="text" id="txtFullName" style="margin: 10px 5px 10px 10px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+                   <b style="padding-left: 10px;"> Địa chỉ</b>
+                
+            </td>
+            <td>
+                <input type="text" id="txtAddress" style="margin: 10px 5px 10px 10px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+               <b style="padding-left: 10px;"> Số điện thoại</b>
+            </td>
+            <td>
+                <input type="text" id="txtPhone" style="margin: 10px 5px 10px 10px;">
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+             <b style="padding-left: 10px;"> Nơi bạn muốn đến</b>
+            </td>
+            <td>
+                <select name="tour" id="cboTour" style="margin: 10px 5px 10px 10px;">
+                    <optgroup label="Miền bắc">
+                    <option value="1">Bắc Ninh</option>
+                    <option value="2">Hà Nội</option>
+                </optgroup>
+                   
+                <optgroup label="Miền trung">
+                    <option value="1">Đà Nẵng </option>
+                    <option value="2">Đà Lạt</option>
+					<option value="3">Phú Quốc</option>
+                  
+                </optgroup>
+                
+                <optgroup label="Miền Nam">
+                    <option value="1">TP.HCM </option>
+                    <option value="2">Bình Phước</option>
+					<option value="3">Vũng tàu</option>
+                </optgroup>
+                  </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+             <b style="padding-left: 10px;" style="margin: 10px 5px 10px 10px;"> Phương tiện</b>  
+            </td>
+            <td>
+                
+            <input type="radio" name="phuongtien" id="rdiPlane" value="maybay" style="margin: 10px 5px 10px 10px;"><span>Máy bay </span>
+            <input type="radio" name="phuongtien" id="rdiCar" value="O to" style="margin: 10px 5px 10px 10px;"><span>Ô tô </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"> 
+                <fieldset style="width:300px; border-color: red; margin-bottom:10px "> <p style="font-weight: bold; color: palevioletred; font-size: 20px; margin: 10px 5px 10px 10px;">Số lượng người trong tour </p>
+                    <label for="people" style="font-weight: bold;">Người lớn</label>
+                    <input name="people" id="txtPeople"  size="5"/>
+               
+                    <label for="Children" style="font-weight: bold;">Trẻ em</label>
+                    <input name="Children" id="txtChildren" size="5"/>
+                </fieldset>
+            </td>
+           
+        </tr>
+        <tr>
+            <td>
+               <b style="padding-left: 10px;"> Ghi chú thêm nếu cần</b>
+            </td>
+            <td>
+                <textarea name="txtComment" cols="30" style="margin: 10px 5px 10px 10px;"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button onclick="checkRegister()"  class="btn btn-primary" style="margin: 10px 5px 10px 10px;">Đăng Ký</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center" >
+                <span id="tb"></span>
+            </td>
+        </tr>
+    </table>
+	</td></tr>
+    </table>
+	</div>
+</body>
+	<script>
+			function checkRegister(){
+				var txtFullName		= document.getElementById('txtFullName');
+				var txtAddress		= document.getElementById('txtAddress');
+				var txtPhone     	= document.getElementById('txtPhone');
+				var rdiPlane 		= document.getElementById('rdiPlane');
+				var rdiCar 			= document.getElementById('rdiCar');
+				var txtPeople     	= document.getElementById('txttxtPeople');
+				var txtChildren 	= document.getElementById('txttxtChildren');
+				var tb      		= document.getElementById('tb');
+
+				if (txtFullName.value.trim() == '') {
+					alert('Họ và tên không được để trống !');
+					txtFullName.focus();
+				}
+                else
+                {
+                    if (txtAddress.value.trim() == '') {
+                        alert('địa chỉ không được để trống !');
+                        txtAddress.focus();
+                    }
+                    else {
+						var phoneNumberPattern = /^\d+$/;
+                        if (!phoneNumberPattern.test(txtPhone.value.trim())) {
+                            alert('Số điện thoại chỉ được nhập số và không được để trống !');
+                            txtPhone.focus();
+                        }
+                        else{
+                            if (rdiPlane.checked == false && rdiCar.checked == false) 
+                                alert('Vui lòng chọn phương tiện');
+                            else 
+                                tb.innerHTML="Bạn đã đăng ký thành công!!!";
+
+                        }
+                    }
+              }    
+		}
+        </script>
+</html>
